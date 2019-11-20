@@ -4,7 +4,7 @@ pipeline {
    environment {
    //   ORGANIZATION_NAME = "fleetman-ci-cd-demo"
    //   YOUR_DOCKERHUB_USERNAME="virtualpairprogrammers"
-     SERVICE_NAME = "react-app"
+     SERVICE_NAME = "my-react-app"
      REPOSITORY_TAG="${YOUR_DOCKERHUB_USERNAME}/${ORGANIZATION_NAME}-${SERVICE_NAME}:${BUILD_ID}"
      DOCKER_IMAGE = ''
    }
