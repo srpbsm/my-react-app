@@ -2,7 +2,7 @@ import React from "react"
 // import logo from './logo.svg';
 import "./App.css"
 import axios from "axios"
-import {MEDIA_SERVER, BACKEND} from "./config"
+import config from "./config"
 
 class App extends React.Component {
   state = {
@@ -10,15 +10,15 @@ class App extends React.Component {
   }
   
   componentDidMount() {
-    axios.get(BACKEND).then(res => {
+    axios.get(config.BACKEND).then(res => {
       const persons = res.data
+      console.log("res", res.data)
       this.setState({ persons })
     })
     console.log("here")
-    if(window.REACT_APP_BRAND){
-      console.log("window",window.REACT_APP_BRAND);
+    if(config.BRAND){
+      console.log("window",config.BRAND);
     }
-    console.log("config media server", MEDIA_SERVER)
     
   }
   // let videoToken = await axios.get(`http://localhost:8080`);
@@ -27,6 +27,8 @@ class App extends React.Component {
     return (
       <div>
         <p>testing</p>
+        <p>{config.BRAND}</p>
+        <p>{config.BACKEND}</p>
         <p>{this.state.persons.message}</p>
       </div>
     )

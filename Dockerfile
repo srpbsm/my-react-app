@@ -11,7 +11,7 @@ RUN npm run build
 FROM nginx:1.14.1-alpine
 EXPOSE 3001
 RUN apk add --no-cache jq
-# RUN rm -rf /etc/nginx/conf.d
+RUN rm -rf /etc/nginx/conf.d
 COPY conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/build /usr/share/nginx/html
 COPY docker-entrypoint.sh generate_config_js.sh /
